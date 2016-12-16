@@ -72,7 +72,18 @@ function changeQualityOfIdea(obj, val) {
       data: { idea: { quality: newQuality } }
     })
   }
-  
+  hideQualityButton(obj, newQuality)
+}
+
+function hideQualityButton(obj, quality){
+  if (quality == 'swill') {
+    $(obj).closest('.idea').find('.idea-quality-dn').hide()
+  } else if (quality == 'meh') {
+    $(obj).closest('.idea').find('.idea-quality-dn').show()
+    $(obj).closest('.idea').find('.idea-quality-up').show()
+  } else if (quality == 'genius') {
+    $(obj).closest('.idea').find('.idea-quality-up').hide()
+  }
 }
 
 function calculateQuality(quality, val) {
@@ -112,6 +123,7 @@ function renderIdea(idea) {
 
   $("#ideas-list").append(rawIdea)
   attachIdeaHandlers(idea);
+  hideQualityButton($(`*[data-id=${idea.id}]`), idea.quality)
 }
 
 
