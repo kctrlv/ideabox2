@@ -14,7 +14,28 @@
  *= require_self
  */
 
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+   border-bottom: none;
+}
+
+body {
+  color: #212121;
+  background-color: #455a64
+}
+
+#new-idea-area {
+  border-radius: 10px;
+  background-color: #607d88
+}
+
+#create-idea-button {
+  background-color: #9E9E9E;
+  margin-left: 73%;
+  margin-top: -25%;
+}
+
 .idea {
-  margin: 10px;
-  border: 1px solid blue;
+  margin-top: 10px;
+  background-color: #CFD8DC;
+  border-radius: 10px;
 }

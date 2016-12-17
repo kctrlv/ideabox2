@@ -1,6 +1,7 @@
 $(document).ready(function(){
   handleCreateIdea();
   getIdeas();
+  $('.collapsible').collapsible();
 })
 
 // GET ALL IDEAS ON DOCUMENT READY
@@ -99,10 +100,6 @@ function calculateQuality(quality, val) {
 }
 
 
-
-
-
-
 // RENDERING IDEAS ON GETTING ALL AND CREATION
 function renderIdeas(ideas) {
   ideas.forEach( renderIdea )
@@ -110,25 +107,22 @@ function renderIdeas(ideas) {
 
 function renderIdea(idea) {
   var rawIdea =
-    `<div class='idea' data-id='${idea.id}'>
-       <div contenteditable="true" class='idea-title editable'>${idea.title}</div>
-       <div contenteditable="true" class='idea-body editable'>${idea.body}</div>
-       <p class='quality-menu'>
+    `<li class='idea' data-id='${idea.id}'>
+       <div contenteditable="true" class='collapsible-header idea-title center editable'>${idea.title}</div>
+       <div contenteditable="true" class='collapsible-body idea-body center editable'>${idea.body}</div>
+       <p class='quality-menu class='collapsible-body '>
           <span><button type="button" class="idea-quality-dn">-</button></span>
           <span class='idea-quality'>${idea.quality}</span>
           <span><button type="button" class="idea-quality-up">+</button></span>
        </p>
        <button type="button" name="delete-idea" class="delete-idea-button">Delete</button>
-     </div>`
+     </li>`
 
-  $("#ideas-list").append(rawIdea)
+  // $("#ideas-list").append(rawIdea)
+  Materialize.showStaggeredList($('#ideas-list').append(rawIdea))
   attachIdeaHandlers(idea);
   hideQualityButton($(`*[data-id=${idea.id}]`), idea.quality)
 }
-
-
-
-
 
 
 // ATTACH HANDLERS ON NEWLY RENDERED IDEA

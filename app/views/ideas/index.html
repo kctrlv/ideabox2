@@ -1,10 +1,23 @@
-<h1>IdeaBox 2.0</h1>
-<div id="app">
-  <input type="text" name="idea[title]" id="create-idea-title">
-  <textarea name="idea[body]" id="create-idea-body"></textarea>
-  <button type="button" name="create-idea" id="create-idea-button">Create</button>
-
-  <div id="ideas-list">
+<div id="app container">
+  <h1 class='center'>ideabox2</h1>
+  <div class="row">
+    <div id="new-idea-area" class='col s8 offset-s2'>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" class='white-text center' name="idea[title]" id="create-idea-title">
+          <label class='white-text'>Title</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea class='materialize-textarea white-text center' name="idea[body]" id="create-idea-body"></textarea>
+          <label class='white-text'>Body</label>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  <a id="create-idea-button" name="create-idea" class="btn-floating btn-large waves-effect waves-light center"><i class="material-icons">add</i></a>
+
+  <ul id="ideas-list" class='collapsible popout' data-collapsible='accordion'>
+  </ul>
 </div>
